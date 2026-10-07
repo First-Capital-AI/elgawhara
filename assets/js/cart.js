@@ -55,6 +55,7 @@
 
   function openDrawer() {
     els.overlay.hidden = false;
+    document.body.classList.add("cart-open");
     requestAnimationFrame(() => {
       els.overlay.classList.add("is-open");
       els.drawer.classList.add("is-open");
@@ -66,6 +67,7 @@
     els.overlay.classList.remove("is-open");
     els.drawer.classList.remove("is-open");
     els.drawer.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("cart-open");
     setTimeout(() => {
       els.overlay.hidden = true;
     }, 250);

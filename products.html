@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>الأصناف | الجوهرة للتوريدات الكهربائية</title>
   <meta name="description" content="تصفّح أصناف الجوهرة — كابلات، إضاءة فينوس، مفاتيح، قواطع، سخانات. أضف لسلة المشتريات واطبع قائمة التسوق." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,25 +43,30 @@
     button, input, select { font-family: inherit; }
     h1, h2, h3 { font-family: "Noto Kufi Arabic", sans-serif; margin: 0; line-height: 1.25; }
     .wrap { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
+    body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
 
     .site-header {
       position: sticky; top: 0; z-index: 50; height: var(--header);
       display: flex; align-items: center;
       background: rgba(247,248,250,0.96); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
+      padding-top: env(safe-area-inset-top);
     }
     .site-header .wrap {
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      position: relative;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      width: 100%;
     }
-    .brand { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
-    .brand img { width: 44px; height: 44px; border-radius: 50%; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; min-width: 0; flex: 1; }
+    .brand img { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; }
     .brand strong {
       display: block; font-family: "Noto Kufi Arabic", sans-serif;
       font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .brand span { display: block; font-size: 0.7rem; color: var(--mute); }
-    .nav { display: flex; align-items: center; gap: 1.25rem; }
+    .nav { display: flex; align-items: center; gap: 1.25rem; flex-shrink: 0; }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-tools { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
     .nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--steel); }
     .nav-links a:hover, .nav-links a.is-active { color: var(--red); }
 
@@ -80,12 +85,24 @@
     .btn-ghost { background: white; border: 1px solid var(--line); color: var(--ink); }
     .btn-wa svg, .cart-btn svg { width: 1.1em; height: 1.1em; fill: currentColor; }
 
+    .menu-toggle {
+      display: none; width: 44px; height: 44px; border: 1px solid var(--line);
+      background: white; border-radius: 2px; align-items: center; justify-content: center;
+      flex-direction: column; gap: 5px; padding: 0; cursor: pointer; flex-shrink: 0;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--ink);
+      transition: transform 0.25s var(--ease), opacity 0.2s; }
+    .nav.is-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.is-open .menu-toggle span:nth-child(2) { opacity: 0; }
+    .nav.is-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     .cart-btn {
       position: relative; background: var(--ink); color: white;
       border: none; border-radius: 2px; padding: 0.65rem 0.9rem;
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-weight: 600; cursor: pointer;
+      font-weight: 600; cursor: pointer; flex-shrink: 0;
     }
+    .cart-btn-label { white-space: nowrap; }
     .cart-count {
       position: absolute; top: -6px; inset-inline-start: -6px;
       min-width: 1.25rem; height: 1.25rem; padding: 0 4px;
@@ -93,6 +110,20 @@
       font-size: 0.7rem; display: grid; place-items: center; font-weight: 700;
     }
     .cart-count:empty, .cart-count[data-count="0"] { display: none; }
+
+    .float-wa {
+      position: fixed;
+      inset-inline-start: max(1rem, env(safe-area-inset-left, 0px));
+      bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+      z-index: 40; width: 56px; height: 56px; border-radius: 50%;
+      background: var(--wa); color: white; display: grid; place-items: center;
+      box-shadow: 0 12px 30px rgba(18, 140, 126, 0.4);
+      transition: transform 0.25s var(--ease), opacity 0.2s, visibility 0.2s;
+    }
+    .float-wa:hover { transform: scale(1.06); }
+    .float-wa svg { width: 28px; height: 28px; fill: currentColor; }
+    body.nav-open .float-wa,
+    body.cart-open .float-wa { opacity: 0; visibility: hidden; pointer-events: none; }
 
     .page-hero {
       padding: 2.2rem 0 1.4rem;
@@ -217,11 +248,14 @@
     .foot-actions .btn-wa { grid-column: 1 / -1; }
 
     .toast {
-      position: fixed; bottom: 1.25rem; inset-inline-start: 50%;
+      position: fixed;
+      bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+      inset-inline-start: 50%;
       transform: translateX(-50%) translateY(120%);
       background: var(--ink); color: white; padding: 0.7rem 1.1rem;
       border-radius: 2px; z-index: 90; font-size: 0.9rem;
       transition: transform 0.3s var(--ease); white-space: nowrap;
+      max-width: calc(100% - 2rem);
     }
     .toast.is-on { transform: translateX(-50%) translateY(0); }
 
@@ -233,9 +267,43 @@
     footer a { color: white; }
     footer a:hover { color: var(--bolt); }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
+      .nav { gap: 0.5rem; }
       .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .nav.is-open .nav-links {
+        display: flex; flex-direction: column; align-items: stretch;
+        position: absolute; inset-inline: 0; top: calc(100% + 0.35rem);
+        z-index: 60; background: var(--paper); padding: 0.85rem 1rem 1.1rem;
+        border: 1px solid var(--line); border-radius: 2px;
+        box-shadow: 0 18px 50px rgba(20, 23, 28, 0.18); gap: 0.15rem;
+        max-height: min(70vh, 28rem); overflow-y: auto;
+      }
+      .nav.is-open .nav-links a {
+        padding: 0.85rem 0.5rem; border-bottom: 1px solid var(--line);
+      }
+      .nav.is-open .nav-links a:last-child { border-bottom: none; }
       .brand span { display: none; }
+      .brand strong { font-size: 0.82rem; max-width: min(42vw, 10.5rem); }
+      .cart-btn { width: 44px; height: 44px; padding: 0; justify-content: center; }
+      .cart-btn-label { display: none; }
+      .toolbar { flex-direction: column; align-items: stretch; gap: 0.65rem; }
+      .search { min-width: 0; width: 100%; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .float-wa { width: 52px; height: 52px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 1.25rem); }
+      .brand strong { max-width: min(38vw, 8.5rem); font-size: 0.78rem; }
+      .page-hero { padding: 1.6rem 0 1.2rem; }
+      .foot-actions { grid-template-columns: 1fr; }
+      .cart-item { grid-template-columns: 56px 1fr; }
+      .cart-line { grid-column: 2; }
+    }
+
+    @media (max-width: 380px) {
+      .brand strong { display: none; }
     }
 
     /* Print sheet */
@@ -269,19 +337,24 @@
           <span>الأصناف · قائمة التسوق</span>
         </div>
       </a>
-      <nav class="nav" aria-label="القائمة">
-        <div class="nav-links">
+      <nav class="nav" id="nav" aria-label="القائمة">
+        <div class="nav-links" id="navLinks">
           <a href="index.html">الرئيسية</a>
           <a class="is-active" href="products.html">الأصناف</a>
           <a href="index.html#why">ليه الجوهرة</a>
           <a href="index.html#reviews">كلام الزباين</a>
           <a href="index.html#visit">فين المحل</a>
         </div>
-        <button type="button" class="cart-btn" id="openCart" aria-label="افتح السلة">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14h9.9c.75 0 1.4-.41 1.74-1.06L21 6H6.2l-.9-2H2v2h2l3.6 7.59-1.35 2.45C5.52 16.37 6.15 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L7.2 14z"/></svg>
-          السلة
-          <span class="cart-count" id="cartCount" data-count="0">0</span>
-        </button>
+        <div class="nav-tools">
+          <button type="button" class="cart-btn" id="openCart" aria-label="افتح السلة">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14h9.9c.75 0 1.4-.41 1.74-1.06L21 6H6.2l-.9-2H2v2h2l3.6 7.59-1.35 2.45C5.52 16.37 6.15 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L7.2 14z"/></svg>
+            <span class="cart-btn-label">السلة</span>
+            <span class="cart-count" id="cartCount" data-count="0">0</span>
+          </button>
+          <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" type="button" aria-label="القائمة">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
@@ -329,6 +402,10 @@
 
   <div id="print-sheet" aria-hidden="true"></div>
 
+  <a class="float-wa" href="https://wa.me/201092706555" aria-label="كلمنا على واتساب">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
   <footer class="site-footer">
     <div class="wrap">
       <p>© <span id="year"></span> الجوهرة للتوريدات الكهربائية · فيصل المريوطية</p>
@@ -343,5 +420,27 @@
   </footer>
 
   <script src="assets/js/cart.js"></script>
+  <script>
+    (() => {
+      const nav = document.getElementById("nav");
+      const toggle = document.getElementById("menuToggle");
+      if (!nav || !toggle) return;
+      const setNavOpen = (open) => {
+        nav.classList.toggle("is-open", open);
+        document.body.classList.toggle("nav-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+      toggle.addEventListener("click", () => setNavOpen(!nav.classList.contains("is-open")));
+      nav.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => setNavOpen(false));
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setNavOpen(false);
+      });
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) setNavOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>
