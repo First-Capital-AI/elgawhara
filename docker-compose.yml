@@ -1,6 +1,8 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     image: aljawhara-web:latest
     container_name: aljawhara-nginx
     ports:
