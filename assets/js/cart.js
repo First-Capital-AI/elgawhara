@@ -204,7 +204,11 @@
           <h4>${i.name}</h4>
           <div class="meta">السعر: ${i.price ? money(i.price) + " / " + i.unit : "حسب الكمية"}</div>
           <div class="cart-controls">
-            <label>كمية <input type="number" min="1" value="${i.qty}" data-cart-qty /></label>
+            <div class="qty-stepper" role="group" aria-label="الكمية">
+              <button type="button" class="qty-btn" data-qty-dec aria-label="نقص الكمية">−</button>
+              <input type="number" min="1" value="${i.qty}" data-cart-qty aria-label="الكمية" />
+              <button type="button" class="qty-btn" data-qty-inc aria-label="زود الكمية">+</button>
+            </div>
             <button type="button" class="remove" data-remove>امسح</button>
           </div>
         </div>
@@ -224,32 +228,53 @@
   }
 
   function buildPrintSheet() {
-    const now = new Date().toLocaleString("ar-EG");
+    const now = new Date().toLocaleString("ar-EG", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+    const itemCount = arabicDigits(cartQtyTotal());
     const rows = cart
       .map(
         (i, idx) => `
       <tr>
-        <td>${arabicDigits(idx + 1)}</td>
-        <td>${i.name}</td>
-        <td>${arabicDigits(i.qty)} ${i.unit}</td>
-        <td>${money(i.price)}</td>
-        <td>${money(i.price * i.qty)}</td>
+        <td class="ps-num">${arabicDigits(idx + 1)}</td>
+        <td class="ps-name">${i.name}</td>
+        <td class="ps-qty">${arabicDigits(i.qty)} ${i.unit || ""}</td>
+        <td class="ps-price">${i.price ? money(i.price) : "حسب الكمية"}</td>
+        <td class="ps-line">${i.price ? money(i.price * i.qty) : "—"}</td>
       </tr>`
       )
       .join("");
 
     els.printSheet.innerHTML = `
-      <h1>قائمة تسوق — الجوهرة للتوريدات الكهربائية</h1>
-      <p class="sub">٥ شارع دكتور لاشين · المريوطية فيصل · 01092706555</p>
-      <p class="sub">تاريخ الطباعة: ${now}</p>
+      <div class="ps-accent"></div>
+      <header class="ps-header">
+        <div class="ps-brand">
+          <img src="assets/logo.png" width="52" height="52" alt="شعار الجوهرة" />
+          <div>
+            <h1>الجوهرة للتوريدات الكهربائية</h1>
+            <p class="ps-tag">جملة وقطاعي · فيصل المريوطية</p>
+          </div>
+        </div>
+        <div class="ps-meta">
+          <strong>قائمة التسوق</strong>
+          <div>${now}</div>
+          <div>${itemCount} قطعة</div>
+        </div>
+      </header>
+      <div class="ps-info">
+        <span><b>العنوان:</b> ٥ شارع دكتور لاشين، المريوطية فيصل</span>
+        <span><b>موبايل:</b> 01092706555</span>
+        <span><b>واتساب:</b> 01092706555</span>
+      </div>
       <table>
         <thead>
           <tr>
-            <th>#</th>
-            <th>الصنف</th>
-            <th>الكمية</th>
-            <th>السعر</th>
-            <th>الإجمالي</th>
+            <th class="ps-num">#</th>
+            <th class="ps-name">الصنف</th>
+            <th class="ps-qty">الكمية</th>
+            <th class="ps-price">السعر</th>
+            <th class="ps-line">الإجمالي</th>
           </tr>
         </thead>
         <tbody>
@@ -258,11 +283,15 @@
         <tfoot>
           <tr>
             <th colspan="4">الإجمالي الكلي</th>
-            <th>${money(cartMoneyTotal())}</th>
+            <td>${money(cartMoneyTotal())}</td>
           </tr>
         </tfoot>
       </table>
-      <p class="sub" style="margin-top:12px">ملاحظة: الأسعار استرشادية — أكّد السعر النهائي مع المحل قبل الشراء.</p>
+      <p class="ps-note">ملاحظة: الأسعار استرشادية للتخطيط — أكّد السعر النهائي مع المحل أو واتساب قبل الشراء.</p>
+      <footer class="ps-footer">
+        <span>الجوهرة للتوريدات الكهربائية</span>
+        <span>واتساب · فيسبوك · إنستجرام</span>
+      </footer>
     `;
   }
 
@@ -306,9 +335,22 @@
   });
 
   els.cartBody.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-remove]");
-    if (!btn) return;
-    removeItem(btn.closest(".cart-item").dataset.id);
+    const row = e.target.closest(".cart-item");
+    if (!row) return;
+    const id = row.dataset.id;
+    if (e.target.closest("[data-remove]")) {
+      removeItem(id);
+      return;
+    }
+    if (e.target.closest("[data-qty-inc]")) {
+      const item = cart.find((i) => i.id === id);
+      if (item) setItemQty(id, Number(item.qty) + 1);
+      return;
+    }
+    if (e.target.closest("[data-qty-dec]")) {
+      const item = cart.find((i) => i.id === id);
+      if (item) setItemQty(id, Number(item.qty) - 1);
+    }
   });
 
   els.openCart.addEventListener("click", openDrawer);

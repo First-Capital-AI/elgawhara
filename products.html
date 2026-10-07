@@ -226,10 +226,25 @@
     .cart-item img { width: 64px; height: 64px; object-fit: cover; background: var(--fog); }
     .cart-item h4 { margin: 0 0 0.25rem; font-size: 0.92rem; font-family: "Noto Kufi Arabic", sans-serif; }
     .cart-item .meta { font-size: 0.8rem; color: var(--mute); }
-    .cart-controls { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin-top: 0.4rem; }
-    .cart-controls input {
-      width: 56px; border: 1px solid var(--line); padding: 0.3rem; text-align: center; border-radius: 2px;
+    .cart-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.4rem; }
+    .qty-stepper {
+      display: inline-flex; align-items: stretch; direction: ltr;
+      border: 1px solid var(--line); border-radius: 2px; overflow: hidden;
     }
+    .qty-stepper input {
+      width: 48px; border: none; border-inline: 1px solid var(--line);
+      padding: 0.3rem 0.2rem; text-align: center; font-weight: 600; border-radius: 0;
+      -moz-appearance: textfield;
+    }
+    .qty-stepper input::-webkit-outer-spin-button,
+    .qty-stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .qty-btn {
+      width: 32px; border: none; background: var(--fog); color: var(--ink);
+      cursor: pointer; font-size: 1.1rem; line-height: 1; font-weight: 700;
+      padding: 0; display: grid; place-items: center;
+    }
+    .qty-btn:hover { background: var(--line); }
+    .qty-btn:active { background: #d8dce3; }
     .cart-line { font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
     .remove {
       border: none; background: none; color: var(--red); cursor: pointer;
@@ -306,24 +321,174 @@
       .brand strong { display: none; }
     }
 
-    /* Print sheet */
+    /* Print sheet — hidden on screen; only content that prints */
     #print-sheet { display: none; }
     @media print {
-      body * { visibility: hidden !important; }
-      #print-sheet, #print-sheet * { visibility: visible !important; }
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+        background: #fff !important;
+        color: #14171c !important;
+        overflow: visible !important;
+      }
+      /* Hide everything except the print sheet — avoids blank pages from tall page layout */
+      body > *:not(#print-sheet) { display: none !important; }
       #print-sheet {
         display: block !important;
-        position: absolute; inset: 0; padding: 18mm;
-        background: white; color: black;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        color: #14171c !important;
         font-family: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+        font-size: 10pt;
+        line-height: 1.45;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
-      #print-sheet table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+      #print-sheet .ps-accent {
+        height: 4px;
+        background: linear-gradient(90deg, #c81e28 0%, #e8b80c 100%);
+        margin-bottom: 14px;
+        border-radius: 1px;
+      }
+      #print-sheet .ps-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1.5px solid #e9edf1;
+        margin-bottom: 14px;
+      }
+      #print-sheet .ps-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+      #print-sheet .ps-brand img {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 2px solid #e9edf1;
+      }
+      #print-sheet .ps-brand h1 {
+        font-family: "Noto Kufi Arabic", "IBM Plex Sans Arabic", sans-serif;
+        font-size: 14pt;
+        font-weight: 700;
+        margin: 0 0 2px;
+        color: #14171c;
+        line-height: 1.25;
+      }
+      #print-sheet .ps-brand .ps-tag {
+        margin: 0;
+        font-size: 8.5pt;
+        color: #5c6570;
+        font-weight: 500;
+      }
+      #print-sheet .ps-meta {
+        text-align: left;
+        flex-shrink: 0;
+        font-size: 8.5pt;
+        color: #5c6570;
+        line-height: 1.55;
+      }
+      #print-sheet .ps-meta strong {
+        display: block;
+        font-size: 11pt;
+        font-weight: 700;
+        color: #c81e28;
+        margin-bottom: 2px;
+        font-family: "Noto Kufi Arabic", sans-serif;
+      }
+      #print-sheet .ps-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin-bottom: 14px;
+        padding: 8px 12px;
+        background: #f7f8fa;
+        border-radius: 4px;
+        font-size: 8.5pt;
+        color: #2a3038;
+      }
+      #print-sheet .ps-info span { white-space: nowrap; }
+      #print-sheet .ps-info b { font-weight: 600; color: #14171c; }
+      #print-sheet table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        table-layout: fixed;
+      }
       #print-sheet th, #print-sheet td {
-        border: 1px solid #333; padding: 8px 10px; text-align: right; font-size: 12pt;
+        padding: 7px 9px;
+        text-align: right;
+        font-size: 9.5pt;
+        border-bottom: 1px solid #e9edf1;
+        vertical-align: middle;
+        word-wrap: break-word;
       }
-      #print-sheet th { background: #eee; }
-      #print-sheet h1 { font-size: 18pt; margin: 0 0 4px; }
-      #print-sheet .sub { font-size: 10pt; color: #444; margin: 0; }
+      #print-sheet thead th {
+        background: #14171c;
+        color: #fff;
+        font-weight: 600;
+        font-size: 8.5pt;
+        border-bottom: none;
+        padding: 8px 9px;
+      }
+      #print-sheet thead th:first-child { border-radius: 0 3px 0 0; }
+      #print-sheet thead th:last-child { border-radius: 3px 0 0 0; }
+      #print-sheet tbody tr:nth-child(even) td { background: #f7f8fa; }
+      #print-sheet .ps-num { width: 8%; text-align: center; color: #5c6570; font-variant-numeric: tabular-nums; }
+      #print-sheet .ps-qty { width: 16%; }
+      #print-sheet .ps-price, #print-sheet .ps-line { width: 16%; font-variant-numeric: tabular-nums; }
+      #print-sheet .ps-name { width: 44%; font-weight: 500; }
+      #print-sheet tfoot th, #print-sheet tfoot td {
+        border-bottom: none;
+        border-top: 2px solid #14171c;
+        padding: 10px 9px;
+        background: #fff !important;
+        font-size: 11pt;
+      }
+      #print-sheet tfoot th { text-align: right; font-weight: 600; }
+      #print-sheet tfoot td {
+        text-align: right;
+        font-weight: 800;
+        color: #c81e28;
+        font-family: "Noto Kufi Arabic", sans-serif;
+        font-size: 12pt;
+      }
+      #print-sheet .ps-note {
+        margin: 14px 0 0;
+        padding: 8px 12px;
+        border-right: 3px solid #e8b80c;
+        background: #faf8f0;
+        font-size: 8pt;
+        color: #5c6570;
+        line-height: 1.5;
+      }
+      #print-sheet .ps-footer {
+        margin-top: 16px;
+        padding-top: 10px;
+        border-top: 1px solid #e9edf1;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 7.5pt;
+        color: #5c6570;
+      }
+      #print-sheet .ps-footer a { color: #c81e28; text-decoration: none; }
     }
   </style>
 </head>
