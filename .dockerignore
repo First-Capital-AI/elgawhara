@@ -1,0 +1,10 @@
+.git
+.gitignore
+*.md
+.env
+.env.*
+**/__pycache__
+**/.DS_Store
+Thumbs.db
+agent-transcripts
+.cursor

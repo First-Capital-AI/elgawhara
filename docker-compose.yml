@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    image: aljawhara-web:latest
+    container_name: aljawhara-nginx
+    ports:
+      - "80:80"
+    restart: unless-stopped

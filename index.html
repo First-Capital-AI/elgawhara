@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الجوهرة للتوريدات الكهربائية | فيصل · المريوطية</title>
+  <meta name="description" content="الجوهرة للتوريدات الكهربائية في فيصل — جملة وقطاعي، وكلاء فينوس وشنايدر وABB وهاجر. بنشحن لكل المحافظات. ٥ شارع دكتور لاشين، المريوطية فيصل، الجيزة." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+    :root {
+      --red: #c81e28;
+      --red-deep: #9a151c;
+      --bolt: #e8b80c;
+      --ink: #14171c;
+      --steel: #2a3038;
+      --mute: #5c6570;
+      --line: #d8dde3;
+      --fog: #e9edf1;
+      --paper: #f7f8fa;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(20, 23, 28, 0.18);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --header: 4.5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, .btn { font-family: inherit; cursor: pointer; }
+
+    .skip {
+      position: absolute;
+      inset-inline-start: 1rem;
+      top: -100px;
+      background: var(--red);
+      color: white;
+      padding: 0.6rem 1rem;
+      z-index: 100;
+    }
+    .skip:focus { top: 1rem; }
+
+    h1, h2, h3, .brand-type {
+      font-family: "Noto Kufi Arabic", "IBM Plex Sans Arabic", sans-serif;
+      line-height: 1.25;
+      margin: 0;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    /* —— Header —— */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--header);
+      display: flex;
+      align-items: center;
+      background: rgba(247, 248, 250, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s var(--ease), background 0.3s;
+    }
+    .site-header.is-scrolled {
+      border-bottom-color: var(--line);
+      background: rgba(247, 248, 250, 0.96);
+    }
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+    .brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .brand strong {
+      display: block;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--mute);
+      letter-spacing: 0.04em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+    .nav a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--steel);
+      position: relative;
+    }
+    .nav a.is-active { color: var(--red); }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: -4px;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s var(--ease);
+    }
+    .nav a:hover::after, .nav a:focus-visible::after { transform: scaleX(1); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+      border-radius: 2px;
+      padding: 0.85rem 1.35rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.25s var(--ease), background 0.25s, color 0.25s, box-shadow 0.25s;
+    }
+    .btn:focus-visible { outline: 2px solid var(--bolt); outline-offset: 3px; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-red {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 10px 28px rgba(200, 30, 40, 0.28);
+    }
+    .btn-red:hover { background: var(--red-deep); }
+    .btn-ghost {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .btn-dark {
+      background: var(--ink);
+      color: white;
+    }
+    .btn-dark:hover { background: var(--steel); }
+    .btn-wa {
+      background: #25d366;
+      color: white;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.32);
+    }
+    .btn-wa:hover { background: #1ebe57; }
+    .btn-wa svg {
+      width: 1.15em;
+      height: 1.15em;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 2px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+    }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - var(--header));
+      min-height: calc(100dvh - var(--header));
+      display: grid;
+      align-items: end;
+      color: white;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      animation: heroDrift 18s var(--ease) infinite alternate;
+    }
+    @keyframes heroDrift {
+      from { transform: scale(1.05) translate(0, 0); }
+      to { transform: scale(1.12) translate(-1.5%, -1%); }
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(12,14,18,0.35) 0%, rgba(12,14,18,0.55) 38%, rgba(12,14,18,0.92) 100%),
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(200,30,40,0.28), transparent 55%);
+    }
+    .hero-bolt {
+      position: absolute;
+      inset-inline-end: 8%;
+      top: 18%;
+      width: 120px;
+      opacity: 0.18;
+      animation: boltPulse 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes boltPulse {
+      0%, 100% { opacity: 0.12; transform: scale(1); }
+      50% { opacity: 0.28; transform: scale(1.06); }
+    }
+    .hero .wrap {
+      padding-block: 4.5rem 3.5rem;
+      width: min(1120px, calc(100% - 2.5rem));
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 1.1rem;
+    }
+    .hero-kicker i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bolt);
+      box-shadow: 0 0 0 4px rgba(232, 184, 12, 0.25);
+      animation: liveDot 1.8s ease-in-out infinite;
+    }
+    @keyframes liveDot {
+      50% { box-shadow: 0 0 0 8px rgba(232, 184, 12, 0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+      font-weight: 800;
+      max-width: 11ch;
+      margin-bottom: 0.85rem;
+      text-shadow: 0 8px 40px rgba(0,0,0,0.35);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--bolt);
+    }
+    .hero-lead {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      max-width: 34ch;
+      color: rgba(255,255,255,0.88);
+      font-weight: 300;
+      margin: 0 0 1.75rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.78);
+    }
+    .hero-meta strong {
+      display: block;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    /* —— Brands strip —— */
+    .brands {
+      background: var(--ink);
+      color: rgba(255,255,255,0.55);
+      padding: 1.15rem 0;
+      overflow: hidden;
+    }
+    .brands-track {
+      display: flex;
+      gap: 3rem;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+    .brands-track span { white-space: nowrap; }
+    .brands-track b { color: white; font-weight: 700; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(50%); }
+    }
+
+    /* —— Sections —— */
+    section { padding: 5rem 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 2.5rem;
+    }
+    .section-head p {
+      margin: 0.6rem 0 0;
+      color: var(--mute);
+      max-width: 42ch;
+    }
+    .eyebrow {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.45rem;
+    }
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    /* —— Products —— */
+    .products { background: var(--white); }
+    .product-stage {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+      min-height: 560px;
+    }
+    .product {
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+      color: white;
+      isolation: isolate;
+    }
+    .product:focus-visible { outline: 3px solid var(--bolt); outline-offset: 2px; }
+    .product-wide { grid-row: span 2; min-height: 100%; }
+    .product img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transition: transform 0.8s var(--ease);
+    }
+    .product:hover img { transform: scale(1.06); }
+    .product::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, transparent 20%, rgba(12,14,18,0.88) 100%);
+    }
+    .product-body {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      padding: 1.4rem 1.5rem 1.5rem;
+    }
+    .product h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .product p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 28ch;
+    }
+    .product-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--bolt);
+      margin-bottom: 0.4rem;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+    }
+    .catalog a {
+      background: var(--paper);
+      padding: 1.35rem 1.4rem;
+      transition: background 0.25s;
+    }
+    .catalog a:hover { background: white; }
+    .catalog strong {
+      display: block;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+    .catalog span {
+      font-size: 0.88rem;
+      color: var(--mute);
+    }
+
+    /* —— Promise —— */
+    .promise {
+      background:
+        linear-gradient(135deg, #1a1f27 0%, #12151a 55%, #2a1012 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .promise::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,30,40,0.35), transparent 70%);
+      inset-inline-end: -120px;
+      top: -80px;
+      pointer-events: none;
+    }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+    }
+    .promise h2 {
+      font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+      margin: 0.4rem 0 1rem;
+    }
+    .promise-lead {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.08rem;
+      margin: 0 0 1.5rem;
+      max-width: 38ch;
+    }
+    .promise-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+    .promise-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .promise-list li:last-child { border-bottom: none; }
+    .promise-num {
+      font-family: "Noto Kufi Arabic", sans-serif;
+      color: var(--bolt);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .promise-list strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+    .promise-list span { color: rgba(255,255,255,0.68); font-size: 0.92rem; }
+    .promise-aside {
+      position: relative;
+      min-height: 420px;
+    }
+    .promise-aside img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+      filter: saturate(0.9) contrast(1.05);
+    }
+    .promise-float {
+      position: absolute;
+      inset-inline-start: 1rem;
+      bottom: 1rem;
+      background: rgba(20,23,28,0.88);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.15rem;
+      max-width: 240px;
+      border-inline-start: 3px solid var(--red);
+    }
+    .promise-float b {
+      display: block;
+      font-size: 1.5rem;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      color: var(--bolt);
+    }
+    .promise-float span { font-size: 0.88rem; color: rgba(255,255,255,0.75); }
+
+    /* —— Reviews —— */
+    .reviews { background: var(--fog); }
+    .rating-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .rating-score {
+      font-family: "Noto Kufi Arabic", sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .stars { color: var(--bolt); letter-spacing: 2px; font-size: 1.1rem; }
+    .rating-bar p { margin: 0; color: var(--mute); font-size: 0.92rem; }
+
+    .review-rail {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .review {
+      background: white;
+      padding: 1.6rem 1.5rem 1.4rem;
+      border-inline-start: 3px solid var(--red);
+      position: relative;
+      display: block;
+      color: inherit;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s;
+    }
+    a.review:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(20, 23, 28, 0.1);
+    }
+    .review blockquote {
+      margin: 0 0 1.25rem;
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.65;
+    }
+    .review footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--mute);
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+    }
+    .review-author img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--fog);
+      flex-shrink: 0;
+    }
+    .review-author strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .review-author span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--mute);
+    }
+    .review .stars { font-size: 0.85rem; flex-shrink: 0; }
+    .rating-bar a {
+      color: var(--mute);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .rating-bar a:hover { color: var(--red); }
+
+    /* —— Visit —— */
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .visit-info h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      margin: 0.35rem 0 1.25rem;
+    }
+    .info-rows {
+      display: grid;
+      gap: 1.15rem;
+      margin-bottom: 1.75rem;
+    }
+    .info-row strong {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--red);
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+    .info-row p, .info-row a {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .info-row a:hover { color: var(--red); }
+    .hours {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.35rem 1rem;
+      font-size: 0.95rem;
+      padding: 1rem 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--steel);
+    }
+    .hours span:nth-child(even) { font-weight: 600; color: var(--ink); }
+    .map-frame {
+      min-height: 460px;
+      background: var(--steel);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      border: 0;
+      filter: grayscale(0.15) contrast(1.05);
+    }
+
+    /* —— CTA band —— */
+    .cta-band {
+      background: var(--red);
+      color: white;
+      padding: 3rem 0;
+    }
+    .cta-band .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .cta-band h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 0.35rem;
+    }
+    .cta-band p { margin: 0; opacity: 0.9; }
+    .cta-band .btn-ghost { border-color: rgba(255,255,255,0.55); }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+    /* —— Footer —— */
+    footer.site-footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+    .footer-brand img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: white;
+    }
+    .footer-brand strong {
+      display: block;
+      color: white;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+    .footer-brand p {
+      margin: 0;
+      font-size: 0.9rem;
+      max-width: 32ch;
+    }
+    .footer-col h3 {
+      color: white;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+    .footer-col a, .footer-col p {
+      display: block;
+      margin: 0 0 0.45rem;
+      font-size: 0.92rem;
+    }
+    .footer-col a:hover { color: var(--bolt); }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-top: 1.25rem;
+      font-size: 0.82rem;
+    }
+    .socials { display: flex; gap: 1rem; }
+    .socials a { color: white; font-weight: 500; }
+    .socials a:hover { color: var(--bolt); }
+
+    /* —— Float WA —— */
+    .float-wa {
+      position: fixed;
+      inset-inline-end: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 60;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 30px rgba(18, 140, 126, 0.4);
+      transition: transform 0.25s var(--ease);
+    }
+    .float-wa:hover { transform: scale(1.06); }
+    .float-wa svg { width: 28px; height: 28px; fill: currentColor; }
+
+    /* —— Reveal —— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* —— Mobile —— */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .nav.is-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        inset-inline: 0;
+        top: var(--header);
+        background: var(--paper);
+        padding: 1rem 1.25rem 1.25rem;
+        border-bottom: 1px solid var(--line);
+        gap: 1.15rem;
+      }
+      .site-header { position: sticky; }
+      .brand span { display: none; }
+      .brand strong { font-size: 0.85rem; max-width: 42vw; }
+      .product-stage { grid-template-columns: 1fr; min-height: 0; }
+      .product-wide { grid-row: auto; min-height: 320px; }
+      .catalog { grid-template-columns: 1fr; }
+      .promise-grid, .visit-grid, .review-rail, .footer-top, .section-head {
+        grid-template-columns: 1fr;
+      }
+      .section-head a { justify-self: start; }
+      .hero h1 { max-width: none; }
+      .brands-track { animation-duration: 22s; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-actions .btn { width: 100%; }
+      .cta-band .btn { width: 100%; }
+      .cta-actions { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">عدّي على المحتوى</a>
+
+  <header class="site-header" id="header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="الجوهرة للتوريدات الكهربائية — الصفحة الرئيسية">
+        <img src="assets/logo.png" width="48" height="48" alt="شعار الجوهرة للتوريدات الكهربائية" />
+        <div>
+          <strong>الجوهرة للتوريدات الكهربائية</strong>
+          <span>فيصل · المريوطية</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="القائمة">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" type="button">
+          <span></span><span></span><span></span>
+          <span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">القائمة</span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="is-active">الرئيسية</a>
+          <a href="products.html">الأصناف</a>
+          <a href="index.html#why">ليه الجوهرة</a>
+          <a href="index.html#reviews">كلام الزباين</a>
+          <a href="index.html#visit">فين المحل</a>
+        </div>
+        <a class="btn btn-wa" href="https://wa.me/201092706555?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%A3%D9%84%20%D8%B9%D9%86%20%D8%AA%D9%88%D8%B1%D9%8A%D8%AF%20%D9%83%D9%87%D8%B1%D8%A8%D8%A7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>واتساب</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-label="المقدمة">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/hero.jpg?v=5" alt="لوحة توزيع كهربائية وقواطع وأسلاك" width="1800" height="1200" />
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <svg class="hero-bolt" viewBox="0 0 64 96" aria-hidden="true">
+        <path fill="#e8b80c" d="M36 0 8 54h20L16 96l40-62H34L48 0H36z"/>
+      </svg>
+
+      <div class="wrap">
+        <p class="hero-kicker"><i aria-hidden="true"></i> فاتحين النهارده · بنشحن لكل المحافظات</p>
+        <h1>الجوهرة <em>للتوريدات</em> الكهربائية</h1>
+        <p class="hero-lead">جودة عالية، أسعار جملة وقطاعي، والكميات موجودة على طول. اختيارك الصح دايمًا.</p>
+        <div class="hero-actions">
+          <a class="btn btn-wa" href="https://wa.me/201092706555"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>اسأل عن السعر</a>
+          <a class="btn btn-ghost" href="products.html">شوف الأصناف</a>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <strong>٥٫٦ ألف</strong>
+            متابع على فيسبوك
+          </div>
+          <div>
+            <strong>٤٫٦ ★</strong>
+            تقييم جوجل من ١٠ زباين
+          </div>
+          <div>
+            <strong>فيصل · المريوطية</strong>
+            ٥ شارع دكتور لاشين، الجيزة
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="brands" aria-label="الوكلاء المعتمدين">
+      <div class="brands-track">
+        <span>وكلاء معتمدين · <b>فينوس</b></span>
+        <span>وكلاء معتمدين · <b>شنايدر</b></span>
+        <span>وكلاء معتمدين · <b>ABB</b></span>
+        <span>وكلاء معتمدين · <b>هاجر</b></span>
+        <span>لوحات توزيع · مولدات · قواطع</span>
+        <span>وكلاء معتمدين · <b>فينوس</b></span>
+        <span>وكلاء معتمدين · <b>شنايدر</b></span>
+        <span>وكلاء معتمدين · <b>ABB</b></span>
+        <span>وكلاء معتمدين · <b>هاجر</b></span>
+        <span>لوحات توزيع · مولدات · قواطع</span>
+      </div>
+    </div>
+
+    <section class="products" id="products">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">الأقسام</span>
+            <h2>كل اللي محتاجه الكهربائي والمقاول</h2>
+            <p>من السلك والقاطعة لحد اللمبة واللوحة — جملة للتجّار وقطاعي للتشطيب، مع عروض فينوس وخصومات للمهندسين.</p>
+          </div>
+          <a class="btn btn-dark" href="products.html">شوف كل الأصناف</a>
+        </div>
+
+        <div class="product-stage reveal">
+          <a class="product product-wide" href="products.html?cat=%D9%83%D8%A7%D8%A8%D9%84%D8%A7%D8%AA">
+            <img src="assets/products/cables.jpg?v=2" alt="كهربائي مصري مع بكرات كابلات وأسلاك نحاس" loading="lazy" />
+            <div class="product-body">
+              <span class="product-tag">أكتر حاجة بتطلب</span>
+              <h3>كابلات وأسلاك نحاس وألومنيوم</h3>
+              <p>شعر ومجدول، إنذار حريق، معزولات، وموصلات — بأسعار اللستة وخصم للتاجر.</p>
+            </div>
+          </a>
+          <a class="product" href="products.html?cat=%D8%A5%D8%B6%D8%A7%D8%A1%D8%A9">
+            <img src="assets/products/lighting.jpg" alt="إضاءة LED وكشافات" loading="lazy" />
+            <div class="product-body">
+              <span class="product-tag">فينوس · إليوس</span>
+              <h3>لمبات وإضاءة LED</h3>
+              <p>بلب، سبوت، ستريب لايت، وباور سبلاي.</p>
+            </div>
+          </a>
+          <a class="product" href="products.html?cat=%D9%85%D9%81%D8%A7%D8%AA%D9%8A%D8%AD%20%D9%88%D9%88%D8%B4%D9%88%D8%B4">
+            <img src="assets/products/switches.jpg?v=2" alt="مفاتيح ووشوش وبرايز على الحيطة" loading="lazy" />
+            <div class="product-body">
+              <span class="product-tag">تشطيب شقق</span>
+              <h3>مفاتيح ووشوش وبرايز</h3>
+              <p>جي فينوس: عادي، سخان، تكييف، وجرس.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="catalog reveal">
+          <a href="products.html?cat=%D9%82%D9%88%D8%A7%D8%B7%D8%B9%20%D9%88%D9%84%D9%88%D8%AD%D8%A7%D8%AA">
+            <strong>قواطع ولوحات توزيع</strong>
+            <span>مانتشر، لوحات بنفصلها للمشاريع، وتجميع بالقواطع</span>
+          </a>
+          <a href="products.html?cat=%D8%B3%D8%AE%D8%A7%D9%86%D8%A7%D8%AA">
+            <strong>سخانات ومستلزمات</strong>
+            <span>عروض سخانات وتوريدات تشطيب كاملة</span>
+          </a>
+          <a href="products.html">
+            <strong>توريدات عمومية ومشاريع</strong>
+            <span>خصومات للشركات والمهندسين · شحن لكل مصر</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="promise" id="why">
+      <div class="wrap promise-grid">
+        <div class="reveal">
+          <span class="eyebrow" style="color: var(--bolt)">ليه الجوهرة</span>
+          <h2>محل تشطيب… وبتاع توريدات للمشاريع</h2>
+          <p class="promise-lead">من فيصل بنخدم الكهربائي والتاجر والمقاول بنفس الاهتمام: سعر واضح، بضاعة موجودة، ورد سريع على الواتساب.</p>
+          <ul class="promise-list">
+            <li>
+              <span class="promise-num">٠١</span>
+              <div>
+                <strong>جملة وقطاعي بنفس الجودة</strong>
+                <span>أسعار كويسة للزبون الفردي، وخصم حقيقي لتاجر الكهربا والشركات.</span>
+              </div>
+            </li>
+            <li>
+              <span class="promise-num">٠٢</span>
+              <div>
+                <strong>ماركات مضمونة على الرف</strong>
+                <span>فينوس وشنايدر وABB وهاجر — مش كلام إعلان، أصناف بنورّدها كل يوم.</span>
+              </div>
+            </li>
+            <li>
+              <span class="promise-num">٠٣</span>
+              <div>
+                <strong>لو مش لاقي الصنف… ابعت الصورة</strong>
+                <span>بنجيبلك اللي انت عايزه، أو نورّيك أقرب بديل بنفس المواصفات.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="promise-aside reveal">
+          <img src="assets/shop.jpg?v=2" alt="كهربائي مصري بيشتغل على لوحة توزيع" loading="lazy" />
+          <div class="promise-float">
+            <b>٩ص – ١١م</b>
+            <span>الجمعة من ١٢:٣٠ الظهر · موجودين على الواتساب</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">من جوجل مابس</span>
+            <h2>ناس شطّبت عندنا… ورجعت تاني</h2>
+            <p>تقييمات حقيقية من زباين جت المحل في المريوطية.</p>
+          </div>
+          <a class="btn btn-dark" href="https://www.google.com/maps/place/%D8%A7%D9%84%D8%AC%D9%88%D9%87%D8%B1%D8%A9+%D9%84%D9%84%D8%AA%D9%88%D8%B1%D9%8A%D8%AF%D8%A7%D8%AA+%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/@29.9967321,31.1461941,17z/data=!4m8!3m7!1s0x1458450ffac62d3f:0x38d668be943f7311!8m2!3d29.9967321!4d31.1461941!9m1!1b1!16s%2Fg%2F11st_9_2t6" target="_blank" rel="noopener">شوف كل التقييمات على جوجل</a>
+        </div>
+
+        <div class="rating-bar reveal">
+          <div class="rating-score">٤٫٦</div>
+          <div>
+            <div class="stars" aria-label="٤٫٦ من ٥">★★★★★</div>
+            <p><a href="https://www.google.com/maps/place/%D8%A7%D9%84%D8%AC%D9%88%D9%87%D8%B1%D8%A9+%D9%84%D9%84%D8%AA%D9%88%D8%B1%D9%8A%D8%AF%D8%A7%D8%AA+%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/@29.9967321,31.1461941,17z/data=!4m8!3m7!1s0x1458450ffac62d3f:0x38d668be943f7311!8m2!3d29.9967321!4d31.1461941!9m1!1b1!16s%2Fg%2F11st_9_2t6" target="_blank" rel="noopener">١٠ تقييمات على جوجل مابس</a> · مكان مضمون ومعاملة ممتازة</p>
+          </div>
+        </div>
+
+        <div class="review-rail">
+          <a class="review reveal" href="https://www.google.com/maps/place/%D8%A7%D9%84%D8%AC%D9%88%D9%87%D8%B1%D8%A9+%D9%84%D9%84%D8%AA%D9%88%D8%B1%D9%8A%D8%AF%D8%A7%D8%AA+%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/@29.9967321,31.1461941,17z/data=!4m8!3m7!1s0x1458450ffac62d3f:0x38d668be943f7311!8m2!3d29.9967321!4d31.1461941!9m1!1b1!16s%2Fg%2F11st_9_2t6" target="_blank" rel="noopener" aria-label="تقييم عمرو الديب على جوجل">
+            <blockquote>مكان ممتاز ومعاملة ممتازه وخدمات ما بعد البيع ممتازه</blockquote>
+            <footer>
+              <div class="review-author">
+                <img src="assets/reviews/amr-eldeeb.jpg" width="40" height="40" alt="" loading="lazy" />
+                <div>
+                  <strong>عمرو الديب</strong>
+                  <span>تقييم على جوجل</span>
+                </div>
+              </div>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </footer>
+          </a>
+          <a class="review reveal" href="https://www.google.com/maps/place/%D8%A7%D9%84%D8%AC%D9%88%D9%87%D8%B1%D8%A9+%D9%84%D9%84%D8%AA%D9%88%D8%B1%D9%8A%D8%AF%D8%A7%D8%AA+%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/@29.9967321,31.1461941,17z/data=!4m8!3m7!1s0x1458450ffac62d3f:0x38d668be943f7311!8m2!3d29.9967321!4d31.1461941!9m1!1b1!16s%2Fg%2F11st_9_2t6" target="_blank" rel="noopener" aria-label="تقييم Me too على جوجل">
+            <blockquote>اسعار مناسبه و معامله ممتازه مكان مضمون</blockquote>
+            <footer>
+              <div class="review-author">
+                <img src="assets/reviews/me-too.jpg" width="40" height="40" alt="" loading="lazy" />
+                <div>
+                  <strong>Me too</strong>
+                  <span>تقييم على جوجل</span>
+                </div>
+              </div>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </footer>
+          </a>
+          <a class="review reveal" href="https://www.google.com/maps/place/%D8%A7%D9%84%D8%AC%D9%88%D9%87%D8%B1%D8%A9+%D9%84%D9%84%D8%AA%D9%88%D8%B1%D9%8A%D8%AF%D8%A7%D8%AA+%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/@29.9967321,31.1461941,17z/data=!4m8!3m7!1s0x1458450ffac62d3f:0x38d668be943f7311!8m2!3d29.9967321!4d31.1461941!9m1!1b1!16s%2Fg%2F11st_9_2t6" target="_blank" rel="noopener" aria-label="تقييم Tghreed Sayed على جوجل">
+            <blockquote>مكان ممتاز واسعار ممتازه وخدمه متميزه</blockquote>
+            <footer>
+              <div class="review-author">
+                <img src="assets/reviews/tghreed-sayed.jpg" width="40" height="40" alt="" loading="lazy" />
+                <div>
+                  <strong>Tghreed Sayed</strong>
+                  <span>تقييم على جوجل</span>
+                </div>
+              </div>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </footer>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit">
+      <div class="wrap visit-grid">
+        <div class="visit-info reveal">
+          <span class="eyebrow">تعالى زورنا</span>
+          <h2>٥ شارع دكتور لاشين<br />المريوطية · فيصل · الهرم</h2>
+          <div class="info-rows">
+            <div class="info-row">
+              <strong>موبايل / واتساب</strong>
+              <a href="tel:+201092706555" dir="ltr">0109 270 6555</a>
+            </div>
+            <div class="info-row">
+              <strong>أرضي</strong>
+              <a href="tel:+20237534428" dir="ltr">02 3753 4428</a>
+            </div>
+            <div class="info-row">
+              <strong>إيميل</strong>
+              <a href="mailto:gawhara.elect.store@gmail.com">gawhara.elect.store@gmail.com</a>
+            </div>
+          </div>
+          <div class="hours" aria-label="مواعيد الشغل">
+            <span>السبت – الخميس</span><span>٩ ص – ١١ م</span>
+            <span>الجمعة</span><span>١٢:٣٠ م – ١١ م</span>
+            <span>الأحد</span><span>٩ ص – ١١ م</span>
+          </div>
+          <div style="margin-top: 1.75rem; display:flex; flex-wrap:wrap; gap:0.7rem;">
+            <a class="btn btn-wa" href="https://wa.me/201092706555"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>واتساب دلوقتي</a>
+            <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=29.9967321,31.1461941" target="_blank" rel="noopener">ورّيني الطريق</a>
+          </div>
+        </div>
+        <div class="map-frame reveal">
+          <iframe
+            title="مكان الجوهرة للتوريدات الكهربائية على خريطة جوجل"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=29.9967321,31.1461941&hl=ar&z=16&output=embed"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <aside class="cta-band">
+      <div class="wrap">
+        <div>
+          <h2>بتشطّب؟ عندك مشروع؟ تاجر كهربا؟</h2>
+          <p>ابعتلنا على واتساب — هنرد عليك بالسعر والتوفّر بسرعة.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-wa" href="https://wa.me/201092706555"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>كلمنا دلوقتي</a>
+          <a class="btn btn-ghost" href="tel:+201092706555" dir="ltr">0109 270 6555</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.png" width="56" height="56" alt="" />
+          <div>
+            <strong>الجوهرة للتوريدات الكهربائية</strong>
+            <p>توريدات كهربا في فيصل — جملة وقطاعي، وبنشحن لكل المحافظات.</p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>كلمنا</h3>
+          <a href="tel:+201092706555" dir="ltr">0109 270 6555</a>
+          <a href="tel:+20237534428" dir="ltr">02 3753 4428</a>
+          <a href="mailto:gawhara.elect.store@gmail.com">gawhara.elect.store@gmail.com</a>
+        </div>
+        <div class="footer-col">
+          <h3>العنوان</h3>
+          <p>٥ شارع الدكتور لاشين<br />مريوطية فيصل الهرم<br />الجيزة، مصر</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> الجوهرة للتوريدات الكهربائية · <a href="products.html">الأصناف</a></p>
+        <div class="socials">
+          <a href="https://www.facebook.com/elgawhra.electric/" target="_blank" rel="noopener">فيسبوك</a>
+          <a href="https://www.instagram.com/gawhara.smart" target="_blank" rel="noopener">إنستجرام</a>
+          <a href="https://www.tiktok.com/@gawhara.store" target="_blank" rel="noopener">تيك توك</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/201092706555" aria-label="كلمنا على واتساب">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const header = document.getElementById("header");
+    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    const nav = document.getElementById("nav");
+    const toggle = document.getElementById("menuToggle");
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add("in"));
+    }
+  </script>
+</body>
+</html>

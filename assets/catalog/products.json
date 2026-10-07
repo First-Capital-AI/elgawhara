@@ -1,0 +1,272 @@
+{
+  "updated": "2026-10-07",
+  "source": "مستخرج من منشورات فيسبوك الجوهرة + أسعار استرشادية (أكّد مع المحل)",
+  "currency": "EGP",
+  "note": "الأسعار استرشادية للتخطيط فقط — السعر النهائي من المحل أو واتساب",
+  "products": [
+    {
+      "id": "cable-shaar-4x16",
+      "name": "كابل شعر نحاس حتى 4×16",
+      "category": "كابلات",
+      "brand": "نحاس",
+      "unit": "متر",
+      "price": 95,
+      "image": "assets/catalog/products/cable-shaar.jpg",
+      "source": "facebook",
+      "desc": "حسب لستة الكابلات المنشورة على صفحة الجوهرة — خصم للتاجر"
+    },
+    {
+      "id": "cable-majadol-4x16",
+      "name": "كابل مجدول نحاس حتى 4×16",
+      "category": "كابلات",
+      "brand": "نحاس",
+      "unit": "متر",
+      "price": 110,
+      "image": "assets/catalog/products/cable-majadol.jpg",
+      "source": "facebook",
+      "desc": "كابلات مجدولة للتشطيب والمشاريع"
+    },
+    {
+      "id": "cable-fire-alarm",
+      "name": "كابل إنذار حريق",
+      "category": "كابلات",
+      "brand": "نحاس",
+      "unit": "متر",
+      "price": 45,
+      "image": "assets/catalog/products/cable-fire.jpg",
+      "source": "facebook",
+      "desc": "متاح حسب اللستة — اسأل عن المقاس المطلوب"
+    },
+    {
+      "id": "cable-copper-4x25",
+      "name": "كابل نحاس من 4×25 شعر/مجدول",
+      "category": "كابلات",
+      "brand": "نحاس",
+      "unit": "متر",
+      "price": 180,
+      "image": "assets/catalog/products/cable-copper-heavy.jpg",
+      "source": "facebook",
+      "desc": "مقاسات أكبر للمشاريع والتوريدات العمومية"
+    },
+    {
+      "id": "cable-alum",
+      "name": "كابل ألومنيوم منخفض نمطي",
+      "category": "كابلات",
+      "brand": "ألومنيوم",
+      "unit": "متر",
+      "price": 70,
+      "image": "assets/catalog/products/cable-alum.jpg",
+      "source": "facebook",
+      "desc": "وموصلات ألومنيوم متاحة حسب اللستة"
+    },
+    {
+      "id": "isolators",
+      "name": "معزولات حتى ١٦ مم",
+      "category": "كابلات",
+      "brand": "عام",
+      "unit": "قطعة",
+      "price": 8,
+      "image": "assets/catalog/products/isolators.jpg",
+      "source": "facebook",
+      "desc": "من بنود اللستة المنشورة على الصفحة"
+    },
+    {
+      "id": "venus-bulb-9w",
+      "name": "لمبة فينوس ليد بلب ٩ وات أبيض",
+      "category": "إضاءة",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 117,
+      "image": "assets/catalog/products/led-bulb-9.jpg",
+      "source": "facebook",
+      "desc": "عرض فينوس عند الجوهرة — جملة وقطاعي"
+    },
+    {
+      "id": "venus-bulb-11w",
+      "name": "لمبة فينوس ليد بلب ١١ وات أبيض",
+      "category": "إضاءة",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 147,
+      "image": "assets/catalog/products/led-bulb-11.jpg",
+      "source": "facebook",
+      "desc": "عروض فينوس للتشطيب والكهربائيين"
+    },
+    {
+      "id": "venus-bulb-16w",
+      "name": "لمبة فينوس ليد بلب ١٦ وات أبيض",
+      "category": "إضاءة",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 249,
+      "image": "assets/catalog/products/led-bulb-16.jpg",
+      "source": "facebook",
+      "desc": "شدة إضاءة أعلى للغرف والمشاريع"
+    },
+    {
+      "id": "elios-strip",
+      "name": "ستريب لايت إليوس Ultra LED",
+      "category": "إضاءة",
+      "brand": "إليوس",
+      "unit": "متر",
+      "price": 85,
+      "image": "assets/catalog/products/led-strip.jpg",
+      "source": "facebook",
+      "desc": "منشورات الجوهرة على فيسبوك/إنستجرام — ستريب لايت وباور سبلاي"
+    },
+    {
+      "id": "led-power-supply",
+      "name": "باور سبلاي ليد (LED Power Supply)",
+      "category": "إضاءة",
+      "brand": "عام",
+      "unit": "قطعة",
+      "price": 220,
+      "image": "assets/catalog/products/led-psu.jpg",
+      "source": "instagram",
+      "desc": "منشورات gawhara.smart — اسأل عن الأمبير المطلوب"
+    },
+    {
+      "id": "spot-led",
+      "name": "سبوت / كشاف ليد",
+      "category": "إضاءة",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 95,
+      "image": "assets/catalog/products/spot-led.jpg",
+      "source": "facebook",
+      "desc": "سبوتات وكشافات متاحة حسب العرض"
+    },
+    {
+      "id": "heater-offer",
+      "name": "سخان كهربائي (عرض الجوهرة)",
+      "category": "سخانات",
+      "brand": "عروض",
+      "unit": "قطعة",
+      "price": 1850,
+      "image": "assets/catalog/products/heater-1.jpg",
+      "source": "facebook",
+      "desc": "عروض سخانات منشورة على الصفحة — أكّد الموديل والسعة"
+    },
+    {
+      "id": "heater-offer-2",
+      "name": "سخان تشطيب — موديلات متعددة",
+      "category": "سخانات",
+      "brand": "عروض",
+      "unit": "قطعة",
+      "price": 2100,
+      "image": "assets/catalog/products/heater-2.jpg",
+      "source": "facebook",
+      "desc": "اسأل عن المتاح والتوصيل"
+    },
+    {
+      "id": "switch-venus-16a",
+      "name": "مفتاح جي فينوس ١٦ أمبير",
+      "category": "مفاتيح ووشوش",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 55,
+      "image": "assets/catalog/products/switch-16a.jpg",
+      "source": "facebook",
+      "desc": "عادي / باللمبة — تشطيب شقق"
+    },
+    {
+      "id": "switch-heater-20a",
+      "name": "مفتاح سخان جي فينوس ٢٠ أمبير باللمبة",
+      "category": "مفاتيح ووشوش",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 95,
+      "image": "assets/catalog/products/switch-20a.jpg",
+      "source": "facebook",
+      "desc": "سخان · موتور · غسالة · تكييف ٢ حصان"
+    },
+    {
+      "id": "switch-ac-45a",
+      "name": "مفتاح تكييف جي فينوس ٤٥ أمبير",
+      "category": "مفاتيح ووشوش",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 160,
+      "image": "assets/catalog/products/switch-45a.jpg",
+      "source": "facebook",
+      "desc": "مع لمبة إشارة — وشوش جي فينوس"
+    },
+    {
+      "id": "socket-double",
+      "name": "بريزة مجوز جي فينوس",
+      "category": "مفاتيح ووشوش",
+      "brand": "فينوس",
+      "unit": "قطعة",
+      "price": 65,
+      "image": "assets/catalog/products/socket-double.jpg",
+      "source": "facebook",
+      "desc": "وشوش وبرايز للتشطيب"
+    },
+    {
+      "id": "panel-mantshr",
+      "name": "لوحة توزيع مانتشر",
+      "category": "قواطع ولوحات",
+      "brand": "هاجر / شنايدر / ABB",
+      "unit": "لوحة",
+      "price": 450,
+      "image": "assets/catalog/products/panel-mantshr.jpg",
+      "source": "facebook",
+      "desc": "وكيل هاجر وشنايدر وABB وفينوس — لوحات جاهزة ومفصّلة"
+    },
+    {
+      "id": "panel-custom",
+      "name": "تفصيل لوحة مشاريع بالقواطع",
+      "category": "قواطع ولوحات",
+      "brand": "مشاريع",
+      "unit": "لوحة",
+      "price": 1200,
+      "image": "assets/catalog/products/panel-custom.jpg",
+      "source": "facebook",
+      "desc": "تفصيل وتجميع حسب مخطط المشروع — خصم للمهندسين"
+    },
+    {
+      "id": "breaker-1p",
+      "name": "قاطع تيار أحادي (MCB)",
+      "category": "قواطع ولوحات",
+      "brand": "هاجر / شنايدر",
+      "unit": "قطعة",
+      "price": 85,
+      "image": "assets/catalog/products/breaker-mcb.jpg",
+      "source": "facebook",
+      "desc": "مقاسات أمبير متعددة — اسأل عن المتاح"
+    },
+    {
+      "id": "generator-panel",
+      "name": "لوحة مولد / توريد لوحات متبورة",
+      "category": "قواطع ولوحات",
+      "brand": "مشاريع",
+      "unit": "لوحة",
+      "price": 3500,
+      "image": "assets/catalog/products/generator-panel.jpg",
+      "source": "facebook",
+      "desc": "من خدمات الجوهرة المعلنة على الصفحة"
+    },
+    {
+      "id": "venus-offer-pack",
+      "name": "عرض فينوس تشطيب (باقة)",
+      "category": "عروض",
+      "brand": "فينوس",
+      "unit": "باقة",
+      "price": 750,
+      "image": "assets/catalog/products/offer-pack.jpg",
+      "source": "facebook",
+      "desc": "العرض مكمل من فينوس عند الجوهرة — للتاجر والعميل"
+    },
+    {
+      "id": "wholesale-kit",
+      "name": "توريدة عمومية / خصم شركات",
+      "category": "عروض",
+      "brand": "الجوهرة",
+      "unit": "طلب",
+      "price": 0,
+      "image": "assets/catalog/products/wholesale.jpg",
+      "source": "facebook",
+      "desc": "السعر حسب الكمية — ابعت القائمة على واتساب"
+    }
+  ]
+}
